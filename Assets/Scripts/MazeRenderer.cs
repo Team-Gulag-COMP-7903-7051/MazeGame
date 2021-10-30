@@ -22,6 +22,9 @@ public class MazeRenderer : MonoBehaviour
     [SerializeField]
     private Transform floorPrefab = null;
 
+    [SerializeField]
+    private Transform winFloorPrefab = null;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -69,6 +72,12 @@ public class MazeRenderer : MonoBehaviour
                 }
             }
         }
+
+        //Random winning Tile
+        var rng = Random.Range(-width, width);
+        var winPosition = new Vector3(rng/2, 0, -5f);
+        var winFloor = Instantiate(winFloorPrefab, transform) as Transform;
+        winFloor.position = winPosition;
     }
 
     // Update is called once per frame
