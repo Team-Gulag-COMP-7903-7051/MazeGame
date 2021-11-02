@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 71f14a2d79f732f4d9893ef1b911f4ff, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.48395744, g: 0.57573867, b: 0.68019843, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 88678f1c5295e704283a9270cf21286a, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: f6f6ba1de51341945826b6c09dcd760c, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -245,12 +245,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923caf3e8254eed4f87e2b81082db9f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 10
-  size: 1
-  height: 10
-  wallPrefab: {fileID: 7844093985048186841, guid: 9d205bffa8555c34ea0217f87ccaab2d, type: 3}
-  floorPrefab: {fileID: 6062631844126585244, guid: 4e7b5bbf99d1ea441910d4e700b9f4e1, type: 3}
-  winFloorPrefab: {fileID: 7844093985048186841, guid: 10bdb87265d183246920d5a84a841681, type: 3}
+  _height: 10
+  _width: 10
+  _size: 1
+  _wallPrefab: {fileID: 7844093985048186841, guid: 9d205bffa8555c34ea0217f87ccaab2d, type: 3}
+  _floorPrefab: {fileID: 6062631844126585244, guid: 4e7b5bbf99d1ea441910d4e700b9f4e1, type: 3}
+  _winFloorPrefab: {fileID: 7844093985048186841, guid: 10bdb87265d183246920d5a84a841681, type: 3}
 --- !u!4 &834381803
 Transform:
   m_ObjectHideFlags: 0
@@ -361,8 +361,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11e85e93dbb50274daad5ecac4153b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 100
-  playerBody: {fileID: 1780439228}
+  MouseSensitivity: 100
+  PlayerBody: {fileID: 1780439228}
 --- !u!1 &1033622619
 GameObject:
   m_ObjectHideFlags: 0
@@ -475,8 +475,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0960908d95c9c49934b0c3a18ebe17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 1780439229}
-  speed: 12
+  Controller: {fileID: 1780439229}
+  Speed: 8
 --- !u!4 &1780439228
 Transform:
   m_ObjectHideFlags: 0
