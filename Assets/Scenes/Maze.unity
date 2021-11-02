@@ -248,7 +248,8 @@ MonoBehaviour:
   _height: 10
   _width: 10
   _size: 1
-  _wallPrefab: {fileID: 7844093985048186841, guid: 9d205bffa8555c34ea0217f87ccaab2d, type: 3}
+  _wallPrefabNorthSouth: {fileID: 7844093985048186841, guid: 9d205bffa8555c34ea0217f87ccaab2d, type: 3}
+  _wallPrefabEastWest: {fileID: 7844093985048186841, guid: 9e3c60e21af5e1649b31d7a09e691aca, type: 3}
   _floorPrefab: {fileID: 6062631844126585244, guid: 4e7b5bbf99d1ea441910d4e700b9f4e1, type: 3}
   _winFloorPrefab: {fileID: 7844093985048186841, guid: 10bdb87265d183246920d5a84a841681, type: 3}
 --- !u!4 &834381803

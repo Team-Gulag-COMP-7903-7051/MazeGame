@@ -4,7 +4,8 @@ public class MazeRenderer : MonoBehaviour {
     [SerializeField] [Range(1, 50)] private int _height = 10;
     [SerializeField] [Range(1, 50)] private int _width = 10;
     [SerializeField] private float _size = 1.0f;
-    [SerializeField] private Transform _wallPrefab = null;
+    [SerializeField] private Transform _wallPrefabNorthSouth = null;
+    [SerializeField] private Transform _wallPrefabEastWest = null;
     [SerializeField] private Transform _floorPrefab = null;
     [SerializeField] private Transform _winFloorPrefab = null;
 
@@ -24,13 +25,13 @@ public class MazeRenderer : MonoBehaviour {
                 var position = new Vector3(-_width/2 + i, 0, -_height/2 + j);
 
                 if (cell.HasFlag(WallState.UP)) {
-                    var topWall = Instantiate(_wallPrefab, transform) as Transform;
+                    var topWall = Instantiate(_wallPrefabNorthSouth, transform) as Transform;
                     topWall.position = position + new Vector3(0, 0, _size/2);
                     topWall.localScale = new Vector3(_size, topWall.localScale.y, topWall.localScale.z);
                 }
 
                 if (cell.HasFlag(WallState.LEFT)) {
-                    var leftWall = Instantiate(_wallPrefab, transform) as Transform;
+                    var leftWall = Instantiate(_wallPrefabEastWest, transform) as Transform;
                     leftWall.position = position + new Vector3(-_size/2, 0, 0);
                     leftWall.localScale = new Vector3(_size, leftWall.localScale.y, leftWall.localScale.z);
                     leftWall.eulerAngles = new Vector3(0,90,0);
@@ -38,7 +39,7 @@ public class MazeRenderer : MonoBehaviour {
 
                 if (i == _width - 1) {
                     if (cell.HasFlag(WallState.RIGHT)) {
-                        var rightWall = Instantiate(_wallPrefab, transform) as Transform;
+                        var rightWall = Instantiate(_wallPrefabEastWest, transform) as Transform;
                         rightWall.position = position + new Vector3(_size/2, 0, 0);
                         rightWall.localScale = new Vector3(_size, rightWall.localScale.y, rightWall.localScale.z);
                         rightWall.eulerAngles = new Vector3(0, 90, 0);
@@ -47,7 +48,7 @@ public class MazeRenderer : MonoBehaviour {
 
                 if (j == 0) {
                     if (cell.HasFlag(WallState.DOWN)) {
-                        var bottomWall = Instantiate(_wallPrefab, transform) as Transform;
+                        var bottomWall = Instantiate(_wallPrefabNorthSouth, transform) as Transform;
                         bottomWall.position = position + new Vector3(0, 0, -_size/2);
                         bottomWall.localScale = new Vector3(_size, bottomWall.localScale.y, bottomWall.localScale.z);
                     }
