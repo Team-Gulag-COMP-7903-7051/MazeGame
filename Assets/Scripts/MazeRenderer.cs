@@ -3,16 +3,25 @@ using UnityEngine;
 public class MazeRenderer : MonoBehaviour {
     [SerializeField] [Range(1, 50)] private int _height = 10;
     [SerializeField] [Range(1, 50)] private int _width = 10;
+    [SerializeField] [Range(0, 50)] private int _additionalBots;
     [SerializeField] private float _size = 1.0f;
     [SerializeField] private Transform _wallPrefabNorthSouth = null;
     [SerializeField] private Transform _wallPrefabEastWest = null;
     [SerializeField] private Transform _floorPrefab = null;
     [SerializeField] private Transform _winFloorPrefab = null;
+    [SerializeField] private GameObject _bot = null;
+    
 
-    // Start is called before the first frame update
     void Start() {
         var maze = MazeGenerator.Generate(_width, _height);
         Draw(maze);
+
+        for(int i = 0; i < _additionalBots; i++) {
+            float x = Random.Range(-4.5f, 4.5f);
+            float y = Random.Range(0.15f, 0.3f);
+            float z = Random.Range(-4.5f, 4.5f);
+            Instantiate(_bot, new Vector3(x, y, z), Quaternion.identity);
+        }
     }
 
     private void Draw(WallState[,] maze) {
@@ -61,11 +70,5 @@ public class MazeRenderer : MonoBehaviour {
         var winPosition = new Vector3(rng/2, 0, -5f);
         var winFloor = Instantiate(_winFloorPrefab, transform) as Transform;
         winFloor.position = winPosition;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
