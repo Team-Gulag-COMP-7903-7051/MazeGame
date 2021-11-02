@@ -23,8 +23,7 @@ public struct Neighbour {
     public WallState SharedWall;
 }
 
-public static class MazeGenerator
-{
+public static class MazeGenerator {
 
     private static WallState GetOppositeWall(WallState wall) {
         switch (wall) {
@@ -63,14 +62,13 @@ public static class MazeGenerator
                 positionStack.Push(nPosition);
             }
         }
-
         return maze;
     }
 
     private static List<Neighbour> GetUnvisitedNeighbours(Position p, WallState[,] maze, int width, int height) {
         var list = new List<Neighbour>();
 
-        if (p.X > 0) { // left
+        if (p.X > 0) { // LEFT
             if (!maze[p.X - 1, p.Y].HasFlag(WallState.VISITED)) {
                 list.Add(new Neighbour {
                     Position = new Position {
@@ -94,7 +92,7 @@ public static class MazeGenerator
             }
         }
 
-        if (p.X < width - 1) { // BOTTOM
+        if (p.X < width - 1) {
             if (!maze[p.X + 1, p.Y].HasFlag(WallState.VISITED)) {
                 list.Add(new Neighbour {
                     Position = new Position {
@@ -106,7 +104,7 @@ public static class MazeGenerator
             }
         }
 
-        if (p.Y < height - 1) { // BOTTOM
+        if (p.Y < height - 1) {  
             if (!maze[p.X, p.Y + 1].HasFlag(WallState.VISITED)) {
                 list.Add(new Neighbour {
                     Position = new Position {
@@ -117,7 +115,6 @@ public static class MazeGenerator
                 });
             }
         }
-
         return list;
     }
 
@@ -131,7 +128,6 @@ public static class MazeGenerator
                 
             }
         }
-
         return ApplyRecursiveBacktracker(maze, width, height);
     }
 }
