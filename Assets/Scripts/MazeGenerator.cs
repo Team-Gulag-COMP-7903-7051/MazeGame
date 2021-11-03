@@ -124,8 +124,6 @@ public static class MazeGenerator {
         for (int i=0; i < width; i++) {
             for (int j=0; j < height; j++) {
                 maze[i, j] = initial;
-
-                
             }
         }
         return ApplyRecursiveBacktracker(maze, width, height);
