@@ -6,7 +6,7 @@ public class Reset : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print("this scens has been reloaded");
+        print("this scene has been reloaded");
     }
     
     void Update()
@@ -14,7 +14,7 @@ public class Reset : MonoBehaviour
         ResetPosition();
     }
     public void ResetPosition() {
-        if (Input.GetKeyDown("b")) {
+        if (Input.GetKeyDown("b")|| Input.GetKeyDown(KeyCode.Home)) {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
