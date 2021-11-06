@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Reset : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        
+        print("this scens has been reloaded");
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        ResetPosition();
+    }
+    public void ResetPosition() {
+        if (Input.GetKeyDown("b")) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 }
