@@ -49,6 +49,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Camera"",
+                    ""type"": ""Button"",
+                    ""id"": ""f3b2a1ae-9100-4f68-b10e-b3cd8fb55473"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -139,6 +147,61 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""action"": ""Quit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""RightStick"",
+                    ""id"": ""b834dc1e-35cc-4e7a-90b5-8afca61caf6c"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""2018fc6d-8758-4f7a-bb0d-c75e9dcb776e"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""9ae0ebdf-7f1f-4547-a82f-f77c5c464016"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""380107b5-1bda-4a66-92d7-bcca65adde2b"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""98b970ee-8d7e-4bfc-90b5-171a1d66ac86"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Camera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -151,6 +214,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Player_Reset = m_Player.FindAction("Reset", throwIfNotFound: true);
         m_Player_GodMode = m_Player.FindAction("GodMode", throwIfNotFound: true);
         m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
+        m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -204,6 +268,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Reset;
     private readonly InputAction m_Player_GodMode;
     private readonly InputAction m_Player_Quit;
+    private readonly InputAction m_Player_Camera;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -212,6 +277,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @Reset => m_Wrapper.m_Player_Reset;
         public InputAction @GodMode => m_Wrapper.m_Player_GodMode;
         public InputAction @Quit => m_Wrapper.m_Player_Quit;
+        public InputAction @Camera => m_Wrapper.m_Player_Camera;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -233,6 +299,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Quit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
                 @Quit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
                 @Quit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnQuit;
+                @Camera.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
+                @Camera.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
+                @Camera.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -249,6 +318,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Quit.started += instance.OnQuit;
                 @Quit.performed += instance.OnQuit;
                 @Quit.canceled += instance.OnQuit;
+                @Camera.started += instance.OnCamera;
+                @Camera.performed += instance.OnCamera;
+                @Camera.canceled += instance.OnCamera;
             }
         }
     }
@@ -259,5 +331,6 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnReset(InputAction.CallbackContext context);
         void OnGodMode(InputAction.CallbackContext context);
         void OnQuit(InputAction.CallbackContext context);
+        void OnCamera(InputAction.CallbackContext context);
     }
 }
