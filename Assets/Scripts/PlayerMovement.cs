@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
     public CharacterController Controller;
     public float Speed = 8f;
+    
     private bool _isCharCtrlMove = true;
 
     void Update() {
