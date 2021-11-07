@@ -29,6 +29,12 @@ public class GameController : MonoBehaviour {
         _quit.performed += QuitCallback;
     }
 
+    private void OnDisable() {
+        _godMode.Disable();
+        _reset.Disable();
+        _quit.Disable();
+    }
+
     void Update() {
         if (Input.GetKeyDown(KeyCode.Home)) {
             ResetPosition();
