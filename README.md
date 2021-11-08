@@ -44,8 +44,8 @@ But be careful! There is an enemy AI moonwalking around the maze and its face is
 
 ## Developers
 
-* Alexis C. Mendiola
-* Charles Huang
-* Mohammed Bajaman
-* Parker Chen
+* Alexis C. Mendiola, A01089168
+* Charles Huang, A01087151
+* Mohammed Bajaman, A00991074
+* Parker Chen, A00970249
 
