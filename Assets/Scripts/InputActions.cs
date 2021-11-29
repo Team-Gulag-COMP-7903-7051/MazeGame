@@ -57,6 +57,14 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""1060ee03-3980-4029-adce-f7935c561eca"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -202,6 +210,17 @@ public class @InputActions : IInputActionCollection, IDisposable
                     ""action"": ""Camera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7643509d-123d-4154-9dee-0cfa94a7a5c7"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -215,6 +234,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         m_Player_GodMode = m_Player.FindAction("GodMode", throwIfNotFound: true);
         m_Player_Quit = m_Player.FindAction("Quit", throwIfNotFound: true);
         m_Player_Camera = m_Player.FindAction("Camera", throwIfNotFound: true);
+        m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -269,6 +289,7 @@ public class @InputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_GodMode;
     private readonly InputAction m_Player_Quit;
     private readonly InputAction m_Player_Camera;
+    private readonly InputAction m_Player_Shoot;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -278,6 +299,7 @@ public class @InputActions : IInputActionCollection, IDisposable
         public InputAction @GodMode => m_Wrapper.m_Player_GodMode;
         public InputAction @Quit => m_Wrapper.m_Player_Quit;
         public InputAction @Camera => m_Wrapper.m_Player_Camera;
+        public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -302,6 +324,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Camera.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
                 @Camera.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
                 @Camera.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCamera;
+                @Shoot.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
+                @Shoot.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
+                @Shoot.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnShoot;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -321,6 +346,9 @@ public class @InputActions : IInputActionCollection, IDisposable
                 @Camera.started += instance.OnCamera;
                 @Camera.performed += instance.OnCamera;
                 @Camera.canceled += instance.OnCamera;
+                @Shoot.started += instance.OnShoot;
+                @Shoot.performed += instance.OnShoot;
+                @Shoot.canceled += instance.OnShoot;
             }
         }
     }
@@ -332,5 +360,6 @@ public class @InputActions : IInputActionCollection, IDisposable
         void OnGodMode(InputAction.CallbackContext context);
         void OnQuit(InputAction.CallbackContext context);
         void OnCamera(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
     }
 }

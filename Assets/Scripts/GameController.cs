@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
     private InputAction _godMode;
     private InputAction _reset;
     private InputAction _quit;
+    private InputAction _shoot;
 
     private bool IsGodMode = false;
 
@@ -16,23 +17,27 @@ public class GameController : MonoBehaviour {
         _godMode = _inputActions.Player.GodMode;
         _reset = _inputActions.Player.Reset;
         _quit = _inputActions.Player.Quit;
+        _shoot = _inputActions.Player.Shoot;
     }
 
     private void OnEnable() {
         _godMode.Enable();
         _reset.Enable();
         _quit.Enable();
+        _shoot.Enable();
 
         // Assign callback functions for each action
         _godMode.performed += GodModeCallback;
         _reset.performed += ResetCallback;
         _quit.performed += QuitCallback;
+        _shoot.performed += ShootCallback;
     }
 
     private void OnDisable() {
         _godMode.Disable();
         _reset.Disable();
         _quit.Disable();
+        _shoot.Disable();
     }
 
     void Update() {
@@ -72,5 +77,9 @@ public class GameController : MonoBehaviour {
 
     private void QuitCallback(InputAction.CallbackContext obj) {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    private void ShootCallback(InputAction.CallbackContext obj) {
+        _player.GetComponent<Shooter>().Shoot();
     }
 }
