@@ -7,7 +7,12 @@ public class Shooter : MonoBehaviour {
     [SerializeField] private float _speed = 20;
 
     private Vector3 _destination;
+    private BoxCollider _boxCollider;
     private readonly Vector3 _centerScreen = new Vector3(0.5f, 0.5f, 0);
+
+    private void Start() {
+        _boxCollider = GetComponent<BoxCollider>();
+    }
 
     public void Shoot() {
         float raycastDistance = 1000;
@@ -21,6 +26,7 @@ public class Shooter : MonoBehaviour {
         }
 
         Ball ball = Instantiate(_ball, _gun.position, Quaternion.identity);
+        Physics.IgnoreCollision(ball.GetComponent<SphereCollider>(), _boxCollider, true);
         ball.Velocity = (_destination - _gun.position).normalized * _speed;
     }
 
