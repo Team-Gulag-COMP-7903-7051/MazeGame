@@ -11,4 +11,9 @@ public class PlayerManager : MonoBehaviour {
     public void IncreaseScore() {
         _score++;
     }
+
+    public int Score {
+        get { return _score; }
+    }
+
 }

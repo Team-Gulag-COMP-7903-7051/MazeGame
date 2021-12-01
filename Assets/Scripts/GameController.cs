@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class GameController : MonoBehaviour {
     [SerializeField] private CharacterController _player;
+    [SerializeField] private GameManager _gameManager;
+
     private InputActions _inputActions; // Input Actions 'Controller'
     private InputAction _godMode;
     private InputAction _reset;
@@ -76,6 +78,7 @@ public class GameController : MonoBehaviour {
     }
 
     private void QuitCallback(InputAction.CallbackContext obj) {
+        //_gameManager.SaveGame();
         SceneManager.LoadScene("MainMenu");
     }
 

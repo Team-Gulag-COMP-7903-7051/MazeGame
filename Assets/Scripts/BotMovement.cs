@@ -91,4 +91,12 @@ public class BotMovement : MonoBehaviour {
             _maxHealth = 1;
         }
     }
+
+    public int PlayerScore {
+        get { return _playerScore; }
+        set { 
+            _playerScore = value;
+            _text.text = "Score: " + _playerScore;
+        }
+    }
 }

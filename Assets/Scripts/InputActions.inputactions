@@ -144,6 +144,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "48a8b776-b784-42ae-8b73-bc1693984ced",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "RightStick",
                     "id": "b834dc1e-35cc-4e7a-90b5-8afca61caf6c",
                     "path": "2DVector",
