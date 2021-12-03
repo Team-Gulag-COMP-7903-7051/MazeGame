@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [ExecuteInEditMode]
-public class Fog : MonoBehaviour {
+public class FogEffect : MonoBehaviour {
 
     public Material fogMaterial; //The fog material.
 
