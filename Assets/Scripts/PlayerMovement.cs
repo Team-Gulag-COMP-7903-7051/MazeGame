@@ -5,12 +5,28 @@ public class PlayerMovement : MonoBehaviour {
     public float Speed = 8f;
     
     private bool _isCharCtrlMove = true;
+    private AudioManager _audioManager;
+    private Vector3 _lastPosition = new Vector3(0, -10, 0);
+
+    private void Awake() {
+       _audioManager = FindObjectOfType<AudioManager>();
+    }
 
     void Update() {
         if (_isCharCtrlMove) {
             CharCtrlMove();
         } else {
             TranslateMove();
+        }
+
+        if (transform.position != _lastPosition) {
+            _lastPosition = transform.position;
+
+            if (!_audioManager.IsPlaying("Footsteps")) {
+                _audioManager.Play("Footsteps");
+            }
+        } else {
+            _audioManager.Stop("Footsteps");
         }
     }
 

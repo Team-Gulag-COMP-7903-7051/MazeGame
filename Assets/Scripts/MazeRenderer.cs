@@ -71,4 +71,14 @@ public class MazeRenderer : MonoBehaviour {
         var winFloor = Instantiate(_winFloorPrefab, transform) as Transform;
         winFloor.position = winPosition;
     }
+
+    public Vector3 GetRandomSpawnPoint() {
+        int width = _width / 2;
+        int height = _height / 2;
+
+        int x = Random.Range(-width, width);
+        int z = Random.Range(-height, height);
+
+        return new Vector3(x, 0, z);
+    }
 }
