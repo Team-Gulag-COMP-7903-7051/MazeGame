@@ -622,6 +622,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -709,6 +710,20 @@ MonoBehaviour:
   MouseSensitivity: 300
   PlayerBody: {fileID: 1780439228}
   _joystickSens: 175
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27a072bb18dd9446d9c74faa81243e63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fogMaterial: {fileID: 2100000, guid: 317c0d26cafec4cada367829c083ef8b, type: 2}
+  _camera: {fileID: 963194227}
 --- !u!1 &1026798122
 GameObject:
   m_ObjectHideFlags: 0
