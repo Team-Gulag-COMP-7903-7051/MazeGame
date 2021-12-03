@@ -1,29 +1,17 @@
 ﻿using UnityEngine;
 
-/// <summary>
-/// This is a class for displaying the fog effect.
-/// </summary>
 [ExecuteInEditMode]
 public class Fog : MonoBehaviour {
 
-    /// <summary>
-    /// The fog material.
-    /// </summary>
-    public Material fogMaterial;
+    public Material fogMaterial; //The fog material.
 
-    /// <summary>
-    /// Reference to the camera attached to this gameobject.
-    /// </summary>
-    public Camera _camera;
 
-    /// <summary>
-    /// Flag for if the fog is enabled or not.
-    /// </summary>
+    public Camera _camera; //Reference to the camera attached to this gameobject.
+
+    //enable the fog or not.
     private bool _enabled;
 
-    /// <summary>
-    /// key cooldown
-    /// </summary>
+    // key cooldown
     private bool _cooldown;
 
     private void Start() {
@@ -37,7 +25,8 @@ public class Fog : MonoBehaviour {
     }
 
     private void Update() {
-        float fogInput = Input.GetAxis("FogInput");
+        //set keyboard input as Z already
+        float fogInput = Input.GetAxis("FogInput"); 
 
         if (_cooldown) {
             if (fogInput > 0.1f) {
@@ -53,9 +42,7 @@ public class Fog : MonoBehaviour {
         }
     }
 
-    /// <summary>
     /// Toggles the fog on or off.
-    /// </summary>
     private void ToggleFog() {
         // Adjust sight radius
         if (_enabled) {
@@ -65,15 +52,10 @@ public class Fog : MonoBehaviour {
         }
         
         _enabled = !_enabled; // Toggle enabled flag
-        //SoundManager.instance.Fog = _enabled;
     }
 
-    /// <summary>
-    /// Called after all images are rendered.
-    /// Used for postprocessing.
-    /// </summary>
-    /// <param name="source">The source render texture</param>
-    /// <param name="destination">The destination render texture</param>
+    // Called after all images are rendered.
+    // Used for postprocessing.
     private void OnRenderImage(RenderTexture source, RenderTexture destination) {
         if (_enabled) {
             // Apply fog material onto destination texture
