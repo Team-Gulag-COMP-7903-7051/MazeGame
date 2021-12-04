@@ -11,7 +11,6 @@ public class MazeRenderer : MonoBehaviour {
     [SerializeField] private Transform _winFloorPrefab = null;
     [SerializeField] private GameObject _bot = null;
     
-
     void Start() {
         var maze = MazeGenerator.Generate(_width, _height);
         Draw(maze);
