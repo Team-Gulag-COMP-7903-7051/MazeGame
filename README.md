@@ -1,8 +1,8 @@
-# COMP7051 Assignment 2
+# COMP7051 Assignment 3
 
 The player will spawn into a randomly generated maze with a First-person Point-of-View. The goal is to navigate the maze and find the end point, which is highlighted by a green beam that is visible over the walls of the maze.
 
-But be careful! There is an enemy AI moonwalking around the maze and its face is kind of alarming! (Otherwise it does nothing to you).
+But be careful! There is an enemy AI moonwalking around the maze and its face is kind of alarming! (Otherwise it does nothing to you.
 
 ## Keyboard Controls
 
@@ -18,7 +18,9 @@ But be careful! There is an enemy AI moonwalking around the maze and its face is
 
 * `HOME` - Reset to the starting point of the maze and reset to default settings
 * `G` - Toggle God Mode, which grants the ability to phase through walls
-
+* `Z` - Toggle Fog
+* `F` - Toggle Flashlight
+* `Left Click` - Shoot projectile
 
 
 ## Gamepad Controls
